@@ -7,14 +7,14 @@ class Items(db.Model):
     name = db.Column(db.String(50), unique=True, nullable=False)
     quantity = db.Column(db.Integer)
     age_restriction = db.Column(db.Boolean, default=False)
-    itemList_links = db.relationship("ItemLists_Link", backref="item")
+    itemList_link = db.relationship("ItemList_Links", backref="item")
 
 class ItemLists(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    catergory_name = db.Column(db.String(50), nullable=False)
-    itemList_links = db.relationship("ItemLists_Link", backref="itemList")
+    list_name = db.Column(db.String(50), nullable=False)
+    itemList_link = db.relationship("ItemList_Links", backref="itemList")
 
 class ItemList_Links(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fk_item_id = db.Column("items_id", db.Integer, db.ForeignKey("items.id"))
-    fk_item_list_id = db.Column("itemLists_id", db.Integer, db.ForeignKey("itemLists.id"))
+    fk_itemList_id = db.Column("itemLists_id", db.Integer, db.ForeignKey("itemLists.id"))
