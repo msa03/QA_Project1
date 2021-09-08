@@ -16,5 +16,5 @@ class ItemLists(db.Model):
 
 class ItemList_Links(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    item_id = db.Column("items_id", db.Integer, db.ForeignKey("items.id"))
-    item_list_id = db.Column("itemLists_id", db.Integer, db.ForeignKey("itemLists.id"))
+    fk_item_id = db.Column("items_id", db.Integer, db.ForeignKey("items.id"))
+    fk_item_list_id = db.Column("itemLists_id", db.Integer, db.ForeignKey("itemLists.id"))
