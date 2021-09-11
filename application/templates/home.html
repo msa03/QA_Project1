@@ -5,16 +5,9 @@
             Use this app to create a personalised shopping list!
         </h4>
     </div>
-    <d>
-        <b>See actions below:</b>
-        <br><br>
-    </d>
-    <d>
-        <li>View your shopping lists</li><br>
-        <li>Add a new item to a list</li><br>
-        <li>Update an item in a list</li><br>
-        <li>Add a new list</li><br>
-        <li>Delete an existing item from a list</li><br>
-        <li>Delete an existing list</li>
-    </d>
+    <div>
+        <p>Click on <a href="{{ url_for('add_list') }}">Add list</a> to create a list and start adding items to it.</p>
+        <p>Click on <a href="{{ url_for('add_item') }}">Add item</a> to add items to an existing list.
+        </p>
+    </div>
 {% endblock content %}

@@ -3,15 +3,12 @@
     <div>
         <p>Add an item down below:</p>
     </div>
-
     <div class="form">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            {{ form.name.label }}       {{ form.name }}
+            {{ form.name.label }}   {{ form.name }}
             <br>
-            {{ form.quantity.label }}      {{ form.quantity }}
-            <br>
-            {{ form.age_restriction.label }}      {{ form.age_restriction }}
+            {{ form.quantity.label }}   {{ form.quantity }}
             <br>
             {{ form.submit }}
             <br>
