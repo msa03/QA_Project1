@@ -1,51 +1,42 @@
 from flask import render_template, url_for, redirect, request
 from application import app, db
-from application.models import Items, ItemLists, ItemListLinks
-from application.forms import ItemForm, ItemListForm, ItemLinkForm
+from application.models import Items, Lists, ItemListLinks
+from application.forms import ItemForm, ListForm, ItemLinkForm
 
 
-@app.route('/', methods=['GET', 'POST'])
-def home():
+@app.route('/')
+@app.route('/read', methods=['GET', 'POST'])
+def read():
     form = ItemForm()
-    
+    items = Items.query.all()
+    return render_template('home.html', title="Home", items=items, form=form)
+
+@app.route('/add-list', methods=['GET', 'POST'])
+def add_list():
+    form = ListForm()
     if form.validate_on_submit():
-        item = Items(
+        new_list = Lists(
+            list_name = form.list_name.data
+        )
+        db.session.add(new_list)
+        db.session.commit()
+        return redirect(url_for('add_item'))
+    return render_template('add_list.html', title = "Create new list", form=form)
+
+@app.route('/add-item', methods=['GET', 'POST'])
+def add_item():
+    form = ItemForm()
+    if form.validate_on_submit():
+        new_item = Items(
             name = form.name.data,
             quantity = form.quantity.data,
-            age_restriction = form.age_restriction.data
-        )
-        db.session.add(item)
+            )
+        db.session.add(new_item)
         db.session.commit()
-        return redirect(url_for('home'))
-    return render_template('home.html', title="Homepage", form=form)
+        return redirect(url_for('read'))
+    return render_template('add_item.html', title = "Add new item to list", form=form)
 
-@app.route('/add_item', methods=['GET', 'POST'])
-def add_item():
-    itemform = ItemForm()
-#     # if itemform.validate_on_submit():
-#     #     item = Items(
-#     #         name = itemform.name.data,
-#     #         quantity = itemform.quantity.data,
-#     #         age_restriction = itemform.age_restriction.data
-#     #     )
-#     #     db.session.add(item)
-#     #     db.session.commit()
-#     #     return redirect(url_for('home'))
-    return render_template('add_item.html', title = "Add new item to list", form=itemform)
-
-@app.route('/add_list', methods=['GET', 'POST'])
-def add_list():
-    itemlistform = ItemListForm()
-#     if itemlistform.validate_on_submit():
-#         itemList = ItemLists(
-#             list_name = itemlistform.list_name.data
-#         )
-#         db.session.add(itemList)
-#         db.session.commit()
-#         return redirect(url_for('home'))
-    return render_template('add_list.html', title = "Create new list", form=itemlistform)
-
-@app.route('/update_item', methods=['GET', 'POST'])
+@app.route('/update-item', methods=['GET', 'POST'])
 def update_item():
     itemform = ItemForm()
     # item =Items.query.get(id)
@@ -57,9 +48,9 @@ def update_item():
 #         itemform.name.data = item.name
     return render_template('update.html', title='Update item', form=itemform)
 
-@app.route('/update_list', methods=['GET', 'POST'])
+@app.route('/update-list', methods=['GET', 'POST'])
 def update_list():
-    itemlistform = ItemListForm()
+    itemlistform = ListForm()
     # itemList =ItemLists.query.get(id)
 #     if itemlistform.validate_on_submit():
 #         itemList.name = itemlistform.name.data
@@ -69,16 +60,16 @@ def update_list():
 #         itemlistform.name.data = itemList.name
     return render_template('update.html', title='Update shopping list name', form=itemlistform)
 
-@app.route('/delete')
+@app.route('/delete-item')
 def delete_item():
     # item = Items.query.get(id)
 #     db.session.delete(item)
 #     db.session.commit()
-    return render_template('delete.html')
+    return render_template('delete.html', title='Delete item')
 
-@app.route('/delete')
+@app.route('/delete-list')
 def delete_list():
     # itemList = ItemLists.query.get(id)
 #     db.session.delete(itemList)
 #     db.session.commit()
-    return render_template('delete.html')
+    return render_template('delete.html', title='Delete list')

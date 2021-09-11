@@ -12,14 +12,13 @@
     </h1>
     <body>
         <div>
-            <a href="{{ url_for('home') }}">Home</a> 
-            <a href="{{ url_for('add_item') }}">Add item(s)</a>
-            <a href="{{ url_for('add_list') }}">Add list(s)</a>
-            <a href="{{ url_for('update_item') }}">Update item(s)</a>
-            <a href="{{ url_for('update_list') }}">Update list(s)</a>
-            <a href="{{ url_for('delete_item') }}">Delete item(s)</a>
-            <a href="{{ url_for('delete_list') }}">Delete list(s)</a>
-
+            <a href="{{ url_for('read') }}">Home</a> ||
+            <a href="{{ url_for('add_list') }}">Add list</a> ||
+            <a href="{{ url_for('add_item') }}">Add item</a> ||
+            <a href="{{ url_for('update_list') }}">Update list</a> ||
+            <a href="{{ url_for('update_item') }}">Update item</a> ||
+            <a href="{{ url_for('delete_list') }}">Delete list</a> ||
+            <a href="{{ url_for('delete_item') }}">Delete item</a>
         </div>
 
         {% block content %}{% endblock content %}
