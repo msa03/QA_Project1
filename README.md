@@ -67,6 +67,8 @@ As mentioned earlier, I had very little understanding about how to translate a d
 
 I had a lot of issues with my Ubuntu server, specifically losing connection to the remote host from within Visual Studio Code very frequently. This greatly hindered my progress and added a heavier time constraint on my project every time it occurred. I encountered this problem right up until the day before the submission deadline. My only current solution for bypassing that obstacle was to restart the instance each time from within AWS and also having to update my configuration file with the new public DNS. At one point I decided to create a new instance altogether because my current one was not working, however I didn't need to use it in the end.
 
+Having completed a solo project that involved coding, I believe I have greatly improved my ability to debug code and this had improved my understanding of python syntax. As a result I feel that I am able to write code more effectively and efficiently.
+
 ### Future Improvements
 ---
 For future iterations of my project, I would like to add more columns to each database table or even a third table linkig to one of the intial two tables so that the app can be expanded upon. I also would like be able to create an app based off my inital project idea as it would be very beneficial for my own understanding to learn how to code a many-to-many relationship into an app. Finally I could put a bit more emphasis for making the front end more aesthetically pleasing for the end user as this could affect repeat usability for the user.
