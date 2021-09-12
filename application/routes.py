@@ -9,7 +9,7 @@ from application.forms import itemForm, manForm
 def read():
     form = manForm()
     man = Manufacturer.query.all()
-    return render_template('home.html', man=man, form=form)
+    return render_template('home.html', title="Home", man=man, form=form)
 
 @app.route('/add-man', methods=['GET', 'POST'])
 def add_man():

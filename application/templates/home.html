@@ -14,10 +14,12 @@
     <hr>
     <div>
         {% for man in man %}
-
-            <li><a href="{{ url_for('add_item') }}">{{ man.manName }}</a></li>
-            <a href='{{ url_for("update_man", manID=man.manID) }}'>Update</a><br>
+        <li>
+            <b><a href="{{ url_for('add_item') }}">{{ man.manName }}</a></b> |
+            <a href='{{ url_for("update_man", manID=man.manID) }}'>Update</a> |
             <a href='{{ url_for("delete_man", manID=man.manID) }}'>Delete</a>
+            <br>  
+        </li>  
         {% endfor %}
     </div>
 {% endblock content %}
