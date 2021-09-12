@@ -4,6 +4,9 @@
 * Project Design
 * CI Pipeline
 * Risk Assessment
+* My App
+* Project Review/Analysis
+* Future Improvements
 
 ### Project Introduction
 ---
@@ -58,6 +61,14 @@ Once an item has been added, the user can view, update or delete their current m
 
 ### Project Review/Analysis
 ---
-Upon completion of my project, there are a few things that I would like to reflect on. The majority of the coding and HTML was both fun and very challenging. As I was entirely a beginner in the python language, I initially struggled to grasp the logic of pythonic coding. I had to do a lot of extensive research for building a Flask app; this took up a lot of my project time to actually learn how to formulate working functions and also how to reference these within the HTML pages. As mentioned earlier, I had very little understanding about how to translate a database with a many-to-many relationship into working code so I quickly had to abandon my initial proposed project idea. As a result, I had to redo all of my models, forms and routes to reflect the changes in my subsequent database relationship. I was then able to produce a working application with full CRUD functionality.
+Upon completion of my project, there are a few things that I would like to reflect on. The majority of the coding and HTML was both fun and very challenging. As I was entirely a beginner in the python language, I initially struggled to grasp the logic of pythonic coding. I had to do a lot of extensive research for building a Flask app; this took up a lot of my project time to actually learn how to formulate working functions and also how to reference these within the HTML pages. 
+
+As mentioned earlier, I had very little understanding about how to translate a database with a many-to-many relationship into working code so I quickly had to abandon my initial proposed project idea. As a result, I had to redo all of my models, forms and routes to reflect the changes in my subsequent database relationship. I was then able to produce a working application with full CRUD functionality.
 
 I had a lot of issues with my Ubuntu server, specifically losing connection to the remote host from within Visual Studio Code very frequently. This greatly hindered my progress and added a heavier time constraint on my project every time it occurred. I encountered this problem right up until the day before the submission deadline. My only current solution for bypassing that obstacle was to restart the instance each time from within AWS and also having to update my configuration file with the new public DNS. At one point I decided to create a new instance altogether because my current one was not working, however I didn't need to use it in the end.
+
+### Future Improvements
+---
+For future iterations of my project, I would like to add more columns to each database table or even a third table linkig to one of the intial two tables so that the app can be expanded upon. I also would like be able to create an app based off my inital project idea as it would be very beneficial for my own understanding to learn how to code a many-to-many relationship into an app. Finally I could put a bit more emphasis for making the front end more aesthetically pleasing for the end user as this could affect repeat usability for the user.
+
+In terms of project management, I think I could definitely improve my time management. A large portion of the time I had was spent struggling and worrying about not being able to code the way I wanted, so I would focus on being able to break down any issues so that it is easier to deal with and move forward at the same time.
