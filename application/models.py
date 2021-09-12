@@ -11,14 +11,3 @@ class Manufacturer(db.Model):
     manID = db.Column(db.Integer, primary_key=True)
     manName = db.Column(db.String(50), nullable=False)
     manSpec = db.Column(db.String(50), nullable=False)
-
-    
-    
-
-
-    
-
-# class ItemListLinks(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     list_id = db.Column(db.Integer, db.ForeignKey('lists.id'))
-#     item_id = db.Column(db.Integer, db.ForeignKey('items.id'))

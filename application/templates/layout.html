@@ -1,19 +1,15 @@
 <html>
     <head>
-        {% if title %}
             <title>{{ title }}</title>
-        {% else %}
-            <title>Shopping List App</title>
-        {% endif %}
     </head>
 
     <h1>
-        Shopping List App
+        Manufacturer App
     </h1>
     <body>
         <div>
-            <a href="{{ url_for('read') }}">View shopping lists</a> ||
-            <a href="{{ url_for('add_list') }}">Add list</a> ||
+            <a href="{{ url_for('read') }}">View manufacturer lists</a> ||
+            <a href="{{ url_for('add_man') }}">Add manufacturer</a> ||
             <a href="{{ url_for('add_item') }}">Add item</a>
         </div>
 
