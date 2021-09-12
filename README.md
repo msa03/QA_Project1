@@ -1,5 +1,10 @@
 # QA-DevOps-SFIA_1-Project
 
+* Project Introduction
+* Project Design
+* CI Pipeline
+* 
+
 ### Project Introduction
 ---
 For this project, I was asked to create an online application using a Flask framework. It needed to have CRUD funtionality, meaning that a user should be able to create, read, update and delete user input data. The data itself had to be stored externally in a MySQL database and should include at least two tables that share a one-to-many relationship.
@@ -27,3 +32,12 @@ For project management, I used Trello to create a tracking board that allowed me
 For version source control I used git and stored my entire project structure and all my source code on GitHub. The benefit of using GitHub is that I would be able to make changes and commit them to update my repository but also be able to revert back to previous versions of my source code as all commits are tracked and saved. This is incredibly useful in the case that we accidentally push broken code up to our repository. As this allows me store my repository externally from my server, if the server did crash, I would be able to create a new server and clone down my repository to recreate the project infrastructure. My host connection dropped several times throughout the course of my project, so to ensure I always saved my current progress, I regularly pushed my commits up to my GitHub account.
 
 I used python code in Visual Studio Code for the development of my app, specifically the Flask extension for python. This was all done on a Ubuntu 18.04 virtual machine. I installed a venv (virtual environment) for pip installs as this would ensure there were no conflicts between existing pip installs on the virtual machine (or local machine if you were working locally).
+
+For the build and automated testing, Jenkins was the proposed server. Jenkins would allow me to clone my project repository into it and then initiate an automatic build from within it. This would also be the same for automated testing. As the application is an ongoing process, I would never be able to achieve a 100% build. For the build to be 100%, I would need to run the app using a systemd service so that the build would not hang. One useful function of using Jenkins is that it allows webhooks via GitHub to run a build every time a push is made to the main branch of the repository. Again, this is to allow a fully automated build. Here is an illustration of the CI Pipeline I am implementing:
+![alt text](image.jpg)
+
+### Risk Assessment
+---
+Before I started with the actual development of the app, I needed to produce an extensive risk assessment do identify the possible risks and areas that could prevent me from achieving my MVP, and then propose countermeasures to reduce the likelihood of the risks. I created my risk assessment in an excel spreadsheet which is shown below:
+![alt text](image.jpg)
+
