@@ -1,14 +1,14 @@
 {% extends 'layout.html' %}
 {% block content %}
     <div>
-        <p>Add an item down below:</p>
+        <p>Add a new manufacturer:</p>
     </div>
     <div class="form">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            {{ form.itemName.label }}   {{ form.itemName }}
+            {{ form.manName.label }}   {{ form.manName }}
             <br>
-            {{ form.itemColour.label }}   {{ form.itemColour }}
+            {{ form.manSpec.label }}   {{ form.manSpec }}
             <br>
             {{ form.submit }}
             <br>

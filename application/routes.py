@@ -1,44 +1,45 @@
 from flask import render_template, url_for, redirect, request
 from application import app, db
-from application.models import Items, Lists, ItemListLinks
-from application.forms import ItemForm, ListForm, ItemLinkForm
+from application.models import Item, Manufacturer
+from application.forms import itemForm, manForm
 
 
 @app.route('/')
-@app.route('/read', methods=['GET', 'POST'])
+@app.route('/read', methods=['GET'])
 def read():
-    form = ItemForm()
-    items = Items.query.all()
-    return render_template('home.html', title="Home", items=items, form=form)
+    form = manForm()
+    man = Manufacturer.query.all()
+    return render_template('home.html', title="Home", man=man, form=form)
 
-@app.route('/add-list', methods=['GET', 'POST'])
-def add_list():
-    form = ListForm()
+@app.route('/add-man', methods=['GET', 'POST'])
+def add_man():
+    form = manForm()
     if form.validate_on_submit():
-        new_list = Lists(
-            list_name = form.list_name.data
-        )
-        db.session.add(new_list)
+        new_man = Manufacturer(
+            manName = form.manName.data,
+            manSpec = form.manSpec.data
+            )
+        db.session.add(new_man)
         db.session.commit()
         return redirect(url_for('add_item'))
-    return render_template('add_list.html', title = "Create new list", form=form)
+    return render_template('add_man.html', title = "Add new manufacturer", form=form)
 
 @app.route('/add-item', methods=['GET', 'POST'])
 def add_item():
-    form = ItemForm()
+    form = itemForm()
     if form.validate_on_submit():
-        new_item = Items(
-            name = form.name.data,
-            quantity = form.quantity.data,
+        new_item = Item(
+            itemName = form.itemName.data,
+            itemColour = form.itemColour.data,
             )
         db.session.add(new_item)
         db.session.commit()
         return redirect(url_for('read'))
-    return render_template('add_item.html', title = "Add new item to list", form=form)
+    return render_template('add_item.html', title = "Add new item to manufacturer", form=form)
 
 @app.route('/update-item', methods=['GET', 'POST'])
 def update_item():
-    itemform = ItemForm()
+    form = itemForm()
     # item =Items.query.get(id)
 #     if itemform.validate_on_submit():
 #         item.name = itemform.name.data
@@ -46,30 +47,32 @@ def update_item():
 #         redirect(url_for('home'))
 #     elif request.method == 'GET':
 #         itemform.name.data = item.name
-    return render_template('update.html', title='Update item', form=itemform)
+    return render_template('update.html', title='Update item', form=form)
 
-@app.route('/update-list', methods=['GET', 'POST'])
-def update_list():
-    itemlistform = ListForm()
-    # itemList =ItemLists.query.get(id)
-#     if itemlistform.validate_on_submit():
-#         itemList.name = itemlistform.name.data
-#         db.session.commit()
-#         redirect(url_for('home'))
-#     elif request.method == 'GET':
-#         itemlistform.name.data = itemList.name
-    return render_template('update.html', title='Update shopping list name', form=itemlistform)
+@app.route('/update-man/<int:manID>', methods=['GET', 'POST'])
+def update_man(manID):
+    form = manForm()
+    man = Manufacturer.query.get(manID)
+    if form.validate_on_submit():
+        man.manName = form.manName.data
+        man.manSpec = form.manSpec.data
+        db.session.commit()
+        redirect(url_for('read'))
+    elif request.method == 'GET':
+        form.manName.data = man.manName
+        form.manSpec.data = man.manSpec
+    return render_template('update_man.html', title='Update manufacturer name', form=form)
 
 @app.route('/delete-item')
 def delete_item():
     # item = Items.query.get(id)
 #     db.session.delete(item)
 #     db.session.commit()
-    return render_template('delete.html', title='Delete item')
+    return redirect(url_for('read'))
 
-@app.route('/delete-list')
-def delete_list():
-    # itemList = ItemLists.query.get(id)
-#     db.session.delete(itemList)
-#     db.session.commit()
-    return render_template('delete.html', title='Delete list')
+@app.route('/delete-man/<int:manID>')
+def delete_man(manID):
+    man = Manufacturer.query.get(manID)
+    db.session.delete(man)
+    db.session.commit()
+    return redirect(url_for('read', man=man))

@@ -1,13 +1,25 @@
 {% extends 'layout.html' %}
 {% block content %}
+    <hr>
     <div>
         <h4>
-            Use this app to create a personalised shopping list!
+            Use this app to create an item and show its manufacturer
         </h4>
     </div>
     <div>
-        <p>Click on <a href="{{ url_for('add_list') }}">Add list</a> to create a list and start adding items to it.</p>
-        <p>Click on <a href="{{ url_for('add_item') }}">Add item</a> to add items to an existing list.
+        <p>Click on <a href="{{ url_for('add_man') }}">Add manufacturer</a> to add a manufacturer and start adding items to it.</p>
+        <p>Click on <a href="{{ url_for('add_item') }}">Add item</a> to add items to a manufacturer.
         </p>
+    </div>
+    <hr>
+    <div>
+        {% for man in man %}
+        <li>
+            <b><a href="{{ url_for('add_item') }}">{{ man.manName }}</a></b> |
+            <a href='{{ url_for("update_man", manID=man.manID) }}'>Update</a> |
+            <a href='{{ url_for("delete_man", manID=man.manID) }}'>Delete</a>
+            <br>  
+        </li>  
+        {% endfor %}
     </div>
 {% endblock content %}
