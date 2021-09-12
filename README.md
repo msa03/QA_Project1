@@ -3,11 +3,11 @@
 * Project Introduction
 * Project Design
 * CI Pipeline
-* 
+* Risk Assessment
 
 ### Project Introduction
 ---
-For this project, I was asked to create an online application using a Flask framework. It needed to have CRUD funtionality, meaning that a user should be able to create, read, update and delete user input data. The data itself had to be stored externally in a MySQL database and should include at least two tables that share a one-to-many relationship.
+For this project, I was asked to create an online application using a Flask framework. It needed to have CRUD funtionality, meaning that a user should be able to create, read, update and delete user input data. The data itself had to be stored externally in a MySQL database, an RDS instance in AWS, and should include at least two tables that share a one-to-many relationship.
 
 ### Project Design
 ---
@@ -24,7 +24,6 @@ The stages of the CI (Continuos Integration) Pipeline that I had to implement we
 * Version Source Control
 * Development
 * Build/Testing
-![alt text](image.jpg)
 
 For project management, I used Trello to create a tracking board that allowed me to allocate user stories and specific tasks to achieve them. By implementing MoSCow prioritisation, I was able to determine which tasks were absolutely necessary for the MVP (must have) and the tasks/functionalities that would be an addition to the MVP (should have's and could have's). On Trello, I was able to show this with different coloured labels. Here is what my Trello board looked like at the start of my project:
 ![alt text](image.jpg)
@@ -39,5 +38,21 @@ For the build and automated testing, Jenkins was the proposed server. Jenkins wo
 ### Risk Assessment
 ---
 Before I started with the actual development of the app, I needed to produce an extensive risk assessment do identify the possible risks and areas that could prevent me from achieving my MVP, and then propose countermeasures to reduce the likelihood of the risks. I created my risk assessment in an excel spreadsheet which is shown below:
+![alt text](image.jpg)
+
+I updated the risk assessment with some of my own responses to the risks as the project progressed. This can be seen in the figure above.
+
+### My App:
+---
+When a user navigates to the app, they can see the homepage where they are also able to view a list of the manufacturers added, if they exist. Otherwise they can follow the links to add one:
+![alt text](image.jpg)
+
+Upon clicking **Add Manufacturer** the user is taken to the corresponding page where they can add a manufacturer and specify its specialty:
+![alt text](image.jpg)
+
+Once the user submits their input they are redirected to the **Add Item** page where they can add an item for the selected manufacturer and specify its colour:
+![alt text](image.jpg)
+
+Once an item has been added, the user can view, update or delete their current manufacturers. If a manufacturer is deleted, all associated items will also be deleted:
 ![alt text](image.jpg)
 
