@@ -1,12 +1,14 @@
 {% extends 'layout.html' %}
 {% block content %}
     <div>
-        <p>Create a new list:</p>
+        <p>Add a new manufacturer:</p>
     </div>
     <div class="form">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            {{ form.list_name.label }}   {{ form.list_name }}
+            {{ form.manName.label }}   {{ form.manName }}
+            <br>
+            {{ form.manSpec.label }}   {{ form.manSpec }}
             <br>
             {{ form.submit }}
             <br>

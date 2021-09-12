@@ -16,8 +16,9 @@ def add_man():
     form = manForm()
     if form.validate_on_submit():
         new_man = Manufacturer(
-            manName = form.manName.data
-        )
+            manName = form.manName.data,
+            manSpec = form.manSpec.data
+            )
         db.session.add(new_man)
         db.session.commit()
         return redirect(url_for('add_item'))
@@ -54,11 +55,13 @@ def update_man(manID):
     man = Manufacturer.query.get(manID)
     if form.validate_on_submit():
         man.manName = form.manName.data
+        man.manSpec = form.manSpec.data
         db.session.commit()
         redirect(url_for('read'))
     elif request.method == 'GET':
         form.manName.data = man.manName
-    return render_template('update.html', title='Update manufacturer name', form=form)
+        form.manSpec.data = man.manSpec
+    return render_template('update_man.html', title='Update manufacturer name', form=form)
 
 @app.route('/delete-item')
 def delete_item():
