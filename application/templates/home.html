@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block content %}
+    <hr>
     <div>
         <h4>
             Use this app to create a personalised shopping list!
@@ -9,5 +10,14 @@
         <p>Click on <a href="{{ url_for('add_list') }}">Add list</a> to create a list and start adding items to it.</p>
         <p>Click on <a href="{{ url_for('add_item') }}">Add item</a> to add items to an existing list.
         </p>
+    </div>
+    <hr>
+    <div>
+        {% for list in lists %}
+
+            <li><a href="{{ url_for('add_item') }}">{{ list.list_name }}</a></li>
+            <a href='{{ url_for("update_list", id=list.list_id) }}'>Update</a><br>
+            <a href='{{ url_for("delete_list", id=list.list_id) }}'>Delete</a>
+        {% endfor %}
     </div>
 {% endblock content %}

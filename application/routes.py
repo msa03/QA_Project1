@@ -1,15 +1,15 @@
 from flask import render_template, url_for, redirect, request
 from application import app, db
-from application.models import Items, Lists, ItemListLinks
-from application.forms import ItemForm, ListForm, ItemLinkForm
+from application.models import Lists, Items
+from application.forms import ListForm, ItemForm
 
 
 @app.route('/')
-@app.route('/read', methods=['GET', 'POST'])
+@app.route('/read', methods=['GET'])
 def read():
-    form = ItemForm()
-    items = Items.query.all()
-    return render_template('home.html', title="Home", items=items, form=form)
+    form = ListForm()
+    lists = Lists.query.all()
+    return render_template('home.html', lists=lists, form=form)
 
 @app.route('/add-list', methods=['GET', 'POST'])
 def add_list():
@@ -48,28 +48,28 @@ def update_item():
 #         itemform.name.data = item.name
     return render_template('update.html', title='Update item', form=itemform)
 
-@app.route('/update-list', methods=['GET', 'POST'])
-def update_list():
-    itemlistform = ListForm()
-    # itemList =ItemLists.query.get(id)
-#     if itemlistform.validate_on_submit():
-#         itemList.name = itemlistform.name.data
-#         db.session.commit()
-#         redirect(url_for('home'))
-#     elif request.method == 'GET':
-#         itemlistform.name.data = itemList.name
-    return render_template('update.html', title='Update shopping list name', form=itemlistform)
+@app.route('/update-list/<int:id>', methods=['GET', 'POST'])
+def update_list(id):
+    form = ListForm()
+    lists = Lists.query.get(id)
+    if form.validate_on_submit():
+        lists.list_name = form.list_name.data
+        db.session.commit()
+        redirect(url_for('read'))
+    elif request.method == 'GET':
+        form.list_name.data = lists.list_name
+    return render_template('update.html', title='Update list name', form=form)
 
 @app.route('/delete-item')
 def delete_item():
     # item = Items.query.get(id)
 #     db.session.delete(item)
 #     db.session.commit()
-    return render_template('delete.html', title='Delete item')
+    return redirect(url_for('read'))
 
-@app.route('/delete-list')
-def delete_list():
-    # itemList = ItemLists.query.get(id)
-#     db.session.delete(itemList)
-#     db.session.commit()
-    return render_template('delete.html', title='Delete list')
+@app.route('/delete-list/<int:id>')
+def delete_list(id):
+    lists = Lists.query.get(id)
+    db.session.delete(lists)
+    db.session.commit()
+    return redirect(url_for('read', lists=lists))

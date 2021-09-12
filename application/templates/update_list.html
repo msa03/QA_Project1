@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div>
+        <p>Update an existing list:</p>
+    </div>
+    <div class="form">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.list_name.label }}   {{ form.list_name }}
+            <br>
+            {{ form.submit }}
+            <br>
+        </form>
+    </div>
+{% endblock content %}
