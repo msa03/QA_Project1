@@ -1,12 +1,12 @@
 # QA-DevOps-SFIA_1-Project
 
-* [Project Introduction](Project-Introduction)
-* [Project Design](Project-Design)
-* [CI Pipeline](CI-Pipeline)
-* [Risk Assessment](Risk-Assessment)
-* [My App](My-App)
-* [Project Review/Analysis](Project-Review/Analysis)
-* [Future Improvements](Future-Improvements)
+* [Project Introduction](#Project-Introduction)
+* [Project Design](#Project-Design)
+* [CI Pipeline](#CI-Pipeline)
+* [Risk Assessment](#Risk-Assessment)
+* [My App](#My-App)
+* [Project Review/Analysis](#Project-Review/Analysis)
+* [Future Improvements](#Future-Improvements)
 
 ### Project Introduction
 ---
