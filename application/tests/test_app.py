@@ -6,7 +6,6 @@ from application.models import Manufacturer, Item
 class TestBase(TestCase):
 
     def create_app(self):
-        # Defines the flask object's configuration for the unit tests
         app.config.update(SQLALCHEMY_DATABASE_URI="sqlite:///test.db",
                 SECRET_KEY='TEST_SECRET_KEY',
                 DEBUG=True,
@@ -15,7 +14,6 @@ class TestBase(TestCase):
         return app
 
     def setUp(self):
-        # Will be called before every test
         db.create_all()
         sampleMan = Manufacturer(manName="TestMan", manSpec="TestSpec")
         db.session.add(sampleMan)
@@ -26,7 +24,6 @@ class TestBase(TestCase):
         db.session.commit()
 
     def tearDown(self):
-        # Will be called after every test
         db.session.remove()
         db.drop_all()
 
