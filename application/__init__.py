@@ -4,9 +4,8 @@ from os import getenv
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-# getenv('DATABASE_URI'
-app.config['SECRET_KEY'] = "my-secret-key"
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
+app.config['SECRET_KEY'] = getenv('my-secret-key')
 
 db = SQLAlchemy(app)
 
