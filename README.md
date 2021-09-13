@@ -81,3 +81,8 @@ For future iterations of my project, I would like to add more columns to each da
 
 In terms of project management, I think I could improve my time management. A large portion of the time I had was spent struggling and worrying about not being able to code the way I wanted due to lack of experience, so I would focus on being able to break down any issues so that it is easier to deal with and move forward at the same time.
 
+### Acknowledgements
+---
+*[Flask Web Development with Python Tutorial - 2 - Routing](https://www.youtube.com/watch?v=27Fjrlx4s-o)*
+*[Flask Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)*
+*QA Community*
