@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div>
+        <p>Add a new manufacturer:</p>
+    </div>
+    <div class="form">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.manName.label }}   {{ form.manName }}
+            <br>
+            {{ form.manSpec.label }}   {{ form.manSpec }}
+            <br>
+            {{ form.submit }}
+            <br>
+        </form>
+    </div>
+{% endblock content %}

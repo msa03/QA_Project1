@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div>
+        <p>Add an item down below:</p>
+    </div>
+    <div class="form">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.itemName.label }}   {{ form.itemName }}
+            <br>
+            {{ form.itemColour.label }}   {{ form.itemColour }}
+            <br>
+            {{ form.submit }}
+            <br>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,18 @@
+<html>
+    <head>
+            <title>{{ title }}</title>
+    </head>
+
+    <h1>
+        Manufacturer App
+    </h1>
+    <body>
+        <div>
+            <a href="{{ url_for('read') }}">View manufacturer lists</a> ||
+            <a href="{{ url_for('add_man') }}">Add manufacturer</a> ||
+            <a href="{{ url_for('add_item') }}">Add item</a>
+        </div>
+
+        {% block content %}{% endblock content %}
+    </body>
+</html>
