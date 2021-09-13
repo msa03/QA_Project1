@@ -1,5 +1,6 @@
 # QA-DevOps-SFIA_1-Project
 
+## Contents:
 * [Project Introduction](#Project-Introduction)
 * [Project Design](#Project-Design)
 * [CI Pipeline](#CI-Pipeline)
