@@ -11,7 +11,7 @@
 ### Project Introduction
 ---
 For this project, I was asked to create an online application using a Flask framework. It needed to have CRUD funtionality, meaning that a user should be able to create, read, update and delete user input data. The data itself had to be stored externally in a MySQL database, an RDS instance in AWS, and should include at least two tables that share a one-to-many relationship. The application structure is shown below:
-![alt text](QA_Project1/Images/appStructure.PNG)
+![alt text](/Images/appStructure.PNG)
 
 ### Project Design
 ---
